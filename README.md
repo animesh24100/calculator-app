@@ -6,7 +6,7 @@ This is a simple demonstration of a calculator app built using Qt6(using PySide6
 
 ### Linux
 
-```sh
+```fish
 git clone https://github.com/animesh24100/calculator-app.git 
 cd calculator-app
 pip install -r requirements.txt
