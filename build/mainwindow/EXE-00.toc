@@ -48,7 +48,7 @@
  [],
  False,
  False,
- 1728387071,
+ 1728392664,
  [('run',
    '/var/home/fine/PythonGroup/pythonproject/lib/python3.12/site-packages/PyInstaller/bootloader/Linux-64bit-intel/run',
    'EXECUTABLE')],

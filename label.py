@@ -7,8 +7,14 @@ class Label(QLabel):
         self.clrScreen()
 
         self.currentAnswer = self.text()
+        self.num1 = None
 
     def clrScreen(self):
+        self.setText("0")
+        self.currentAnswer = "0"
+        self.num1 = None
+
+    def clrScreenNicely(self):
         self.setText("0")
         self.currentAnswer = "0"
 
@@ -18,12 +24,14 @@ class Label(QLabel):
         self.currentAnswer = newText
 
     def doOperation(self, operation):
-        self.num1 = self.currentAnswer
-        self.clrScreen()
+        if self.num1 is None:
+            self.num1 = self.currentAnswer
+        self.clrScreenNicely()
         self.getchop = operation
 
     def getAnswer(self):
         self.currentAnswer = self.text()
+        answer = ""
         match self.getchop:
             case "+":
                 answer = str(int(self.num1) + int(self.currentAnswer))
@@ -40,6 +48,4 @@ class Label(QLabel):
                     self.setText(answer)
                 except ZeroDivisionError:
                     self.setText("CANNOT DIVIDE BY ZERO")
-        self.num1 = None
-        self.currentAnswer = None
-        self.getchop = None
+        self.num1 = answer
