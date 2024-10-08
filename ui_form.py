@@ -21,17 +21,21 @@ from PySide6.QtWidgets import (QApplication, QFrame, QGridLayout, QMainWindow,
 from label import Label
 from numberbutton import numberButton
 from operationbutton import operationButton
+import rc_resources
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
         MainWindow.resize(360, 600)
-        sizePolicy = QSizePolicy(QSizePolicy.Policy.Maximum, QSizePolicy.Policy.Maximum)
+        sizePolicy = QSizePolicy(QSizePolicy.Policy.MinimumExpanding, QSizePolicy.Policy.MinimumExpanding)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(MainWindow.sizePolicy().hasHeightForWidth())
         MainWindow.setSizePolicy(sizePolicy)
+        icon = QIcon()
+        icon.addFile(u":/icons/calculator.ico", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        MainWindow.setWindowIcon(icon)
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
         self.gridLayout_2 = QGridLayout(self.centralwidget)
@@ -60,7 +64,7 @@ class Ui_MainWindow(object):
         self.label.setTextFormat(Qt.TextFormat.AutoText)
         self.label.setScaledContents(False)
         self.label.setAlignment(Qt.AlignmentFlag.AlignBottom|Qt.AlignmentFlag.AlignRight|Qt.AlignmentFlag.AlignTrailing)
-        self.label.setWordWrap(False)
+        self.label.setWordWrap(True)
         self.label.setMargin(10)
 
         self.verticalLayout.addWidget(self.label)
@@ -130,7 +134,7 @@ class Ui_MainWindow(object):
         self.Button_Into.setObjectName(u"Button_Into")
         sizePolicy2.setHeightForWidth(self.Button_Into.sizePolicy().hasHeightForWidth())
         self.Button_Into.setSizePolicy(sizePolicy2)
-        self.Button_Into.setCheckable(True)
+        self.Button_Into.setCheckable(False)
 
         self.gridLayout.addWidget(self.Button_Into, 2, 3, 1, 1)
 

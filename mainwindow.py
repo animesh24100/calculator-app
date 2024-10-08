@@ -1,10 +1,14 @@
 # This Python file uses the following encoding: utf-8
-import sys, os
+from ui_form import Ui_MainWindow
+import rc_resources
+import sys
+import os
 
 from PySide6.QtWidgets import QApplication, QMainWindow
 from PySide6 import QtGui
 
 basedir = os.path.dirname(__file__)
+
 
 try:
     from ctypes import windll  # Only exists on Windows.
@@ -13,12 +17,6 @@ try:
     windll.shell32.SetCurrentProcessExplicitAppUserModelID(myappid)
 except ImportError:
     pass
-
-# Important:
-# You need to run the following command to generate the ui_form.py file
-#     pyside6-uic form.ui -o ui_form.py, or
-#     pyside2-uic form.ui -o ui_form.py
-from ui_form import Ui_MainWindow
 
 
 class MainWindow(QMainWindow):
@@ -31,6 +29,6 @@ class MainWindow(QMainWindow):
 if __name__ == "__main__":
     app = QApplication(sys.argv)
     widget = MainWindow()
-    app.setWindowIcon(QtGui.QIcon("calculator.ico"))
+    app.setWindowIcon(QtGui.QIcon(":/icons/hand_icon.ico"))
     widget.show()
     sys.exit(app.exec())
