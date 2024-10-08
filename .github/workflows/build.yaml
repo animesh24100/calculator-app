@@ -23,7 +23,7 @@ jobs:
 
       - name: Build executable
         run: |
-        pyinstaller mainwindow.spec
+          pyinstaller mainwindow.spec
 
       - name: Deploy to Windows
         uses: actions/upload-artifact@v3
