@@ -1,0 +1,58 @@
+name: Build and Deploy PySide6 App
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build-windows:
+    runs-on: windows-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up Python environment
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.12.6'  # Replace with your desired Python version
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Build executable
+        run: |
+        pyinstaller mainwindow.spec
+
+      - name: Deploy to Windows
+        uses: actions/upload-artifact@v3
+        with:
+          name: my-app-windows
+          path: dist/calculator.exe
+
+  build-ubuntu:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up Python environment
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.12.6'  # Replace with your desired Python version
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Build executable
+        run: |
+          pyinstaller mainwindow.spec
+
+      - name: Deploy to Ubuntu
+        uses: actions/upload-artifact@v3
+        with:
+          name: my-app-linux
+          path: dist/calculator
