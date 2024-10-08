@@ -31,7 +31,7 @@ jobs:
           name: calculator-windows
           path: dist/calculator.exe
       - name: Upload artifact to GitHub Release
-        uses: actions/upload-release-asset@v2
+        uses: actions/upload-release-asset@v1
         with:
           upload_url: ${{ github.repository_url }}/releases/download/v1.0.0/my-app.exe
           asset_path: dist/calculator.exe
@@ -62,7 +62,7 @@ jobs:
           name: calculator-linux
           path: dist/calculator
       - name: Upload artifact to GitHub Release
-        uses: actions/upload-release-asset@v2
+        uses: actions/upload-release-asset@v1
         with:
           upload_url: ${{ github.repository_url }}/releases/download/v1.0.0/my-app.exe
           asset_path: dist/calculator
