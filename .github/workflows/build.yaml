@@ -28,7 +28,7 @@ jobs:
       - name: Deploy to Windows
         uses: actions/upload-artifact@v3
         with:
-          name: my-app-windows
+          name: calculator.exe
           path: dist/calculator.exe
 
   build-ubuntu:
@@ -54,5 +54,5 @@ jobs:
       - name: Deploy to Ubuntu
         uses: actions/upload-artifact@v3
         with:
-          name: my-app-linux
+          name: calculator
           path: dist/calculator
